@@ -1,0 +1,67 @@
+/* src/RegisterPage.css */
+.RegisterPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  .FormContainer {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+  }
+  
+  .Logo {
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+  }
+  
+  input {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #572AD7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #4a22b4;
+  }
+  
+  .Cancel {
+    display: block;
+    margin-top: 10px;
+    color: #572AD7;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .Cancel:hover {
+    text-decoration: underline;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+  

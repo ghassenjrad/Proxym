@@ -1,0 +1,46 @@
+ Page de Garde
+Contenu : Inclure les noms et logos de l’entreprise et de l’école, la classe et promotion, les dates du stage, le nom et prénom de l’étudiant, ainsi que les noms des tuteurs (école et entreprise).
+Remarque : Cette page ne doit pas être paginée mais constitue la première page du document.
+2. Sommaire (Table des Matières)
+Contenu : Il doit inclure toutes les sections et sous-sections du rapport, numérotées de manière claire et hiérarchisée. Inclure également la bibliographie, les annexes, la table des figures, et un glossaire si nécessaire.
+Numérotation :
+Introduction
+Présentation de l’Entreprise
+Compte rendu du stage
+Enjeux environnementaux et sociétaux
+Prise de recul
+3. Introduction
+Contenu : Contexte du stage, conditions d’obtention, motivation, et mission générale du stage.
+4. Présentation de l’Entreprise
+Sous-parties :
+2.1 Historique de l’entreprise : Bref aperçu, éviter un historique trop détaillé.
+2.2 Produits et services : Présenter les produits et services principaux.
+2.3 Clients et concurrents : Identifier les principaux clients et concurrents, ainsi que la stratégie de l'entreprise pour se démarquer.
+2.4 Organisation et gouvernance : Structure interne de l’entreprise, chiffres financiers clés, actualité, et impact des crises environnementales.
+5. Présentation du Lieu de Travail
+Contenu : Description du lieu de travail, outils et machines utilisés, conditions de travail, climat social, et relations hiérarchiques.
+6. Compte Rendu du Stage
+Contenu : Description détaillée des tâches effectuées, chronologie des gestes techniques, les difficultés rencontrées, et le contraste entre la mission prescrite et le travail réellement effectué.
+7. Enjeux Environnementaux et Sociétaux
+Contenu : Analyse des enjeux observés dans l'entreprise, impact des crises environnementales, et intégration des transitions écologiques et sociétales.
+8. Prise de Recul
+Contenu : Analyse des apprentissages acquis durant le stage, réflexion critique sur le travail effectué, compétences acquises, et points faibles à développer.
+9. Figures et Tableaux
+Numérotation : Figures (Figure 1, Figure 2...) et Tableaux (Tableau 1, Tableau 2...) doivent être numérotés et légendés séparément.
+Sourçage : Ajouter les sources si ce ne sont pas des créations originales.
+10. Annexes
+Contenu : Annexes numérotées avec un titre, elles doivent être mentionnées dans le corps du rapport si elles complètent les informations présentées.
+11. Bibliographie
+Contenu : Lister toutes les sources utilisées dans le rapport. Mentionner les auteurs, titres, dates de parution, éditeurs, et pour les articles, le lien direct vers le site Internet avec la date de consultation.
+12. Qualité Visuelle
+Police : Choisir une police sérieuse (éviter Comic Sans MS), et utiliser une taille de 12 ou 13 pour le corps de texte.
+Harmonie : Maintenir une cohérence dans les tailles de caractères et les couleurs utilisées.
+13. Qualité Rédactionnelle
+Relecture :
+1ère relecture : Concentrez-vous sur le fond.
+2ème relecture : Concentrez-vous sur l'orthographe et la syntaxe.
+3ème relecture : Concentrez-vous sur les titres, sous-titres, et la pagination.
+Remarques Spéciales
+Plagiat : Assurez-vous de citer correctement toutes les sources. Le plagiat est strictement interdit.
+Utilisation de l’IA : Mentionner explicitement l'utilisation de ChatGPT ou d'autres IA dans la rédaction du rapport.
+En suivant ces étapes, tu pourras structurer un rapport de stage professionnel qui répond aux attentes académiques.

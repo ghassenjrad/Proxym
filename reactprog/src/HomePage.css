@@ -1,0 +1,300 @@
+.HomePage {
+  display: flex;
+}
+
+.Aside {
+  width: 200px;
+  background-color: #572AD7;
+  /* Changed background color */
+  color: #fff;
+  /* Ensure text color is readable on the dark background */
+  padding: 1rem;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.Dashtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.Aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+.Aside li {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.Aside li.active {
+  background-color: #fff;
+  /* Highlight the active tab with a different color */
+  color: #572AD7;
+  /* Text color to match the sidebar background */
+}
+
+.MainContent {
+  flex: 1;
+  padding: 1rem;
+}
+
+.DeviceTable {
+  margin-top: 1rem;
+}
+
+.DeviceTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.DeviceTable th,
+.DeviceTable td {
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.DeviceTable th {
+  background-color: #572AD7;
+  color: #fff;
+}
+
+.ButtonGroup {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ReserveForm {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.ReserveForm h2 {
+  margin-bottom: 1rem;
+}
+
+.cancel {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.cancel:hover {
+  background: #c0392b;
+}
+
+.ButtonGroup button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.ButtonGroup button:hover {
+  opacity: 0.9;
+}
+
+.ReservationList {
+  margin-top: 1rem;
+}
+
+.reservation-item {
+  margin-bottom: 1rem;
+}
+
+
+/*Celender css*/
+.react-calendar__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  background-color: #572AD7;
+  /* Background color of the navigation bar */
+  color: #fff;
+  /* Text color in the navigation bar */
+  border-radius: 4px;
+}
+
+.react-calendar__navigation__arrow {
+  background: none;
+  border: none;
+  color: #fff;
+  /* Color of the navigation arrows */
+  font-size: 1.2rem;
+  /* Size of the navigation arrows */
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.react-calendar__navigation__arrow:hover {
+  background-color: #4a1c9c;
+  /* Background color on hover */
+  border-radius: 50%;
+}
+
+.react-calendar__navigation__label {
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+  flex-grow: 1;
+  background: none;
+  border: none;
+  cursor: default;
+}
+
+.react-calendar__navigation__label__labelText {
+  font-weight: bold;
+}
+
+.react-calendar {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+}
+
+.react-calendar__month-view__days__day {
+  font-size: 1rem;
+  color: #572AD7;
+}
+
+.react-calendar__month-view__weekdays {
+  background-color: #572AD7;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  color: #fff;
+}
+
+.react-calendar__tile {
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.react-calendar__tile--active {
+  background-color: #572AD7;
+  color: #fff;
+}
+
+.react-calendar__tile--hover {
+  background-color: #f0f0f0;
+}
+
+.react-calendar__tile--hasActive {
+  background-color: #ddd;
+}
+
+
+/*My reservations css*/
+
+.ReservationList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ReservationList th,
+.ReservationList td {
+  padding: 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.ReservationList th {
+  background-color: #572AD7;
+  color: #fff;
+}
+
+.ReservationList .ChangeReservationButton,
+.ReservationList .CancelReservationButton {
+  padding: 0.25rem 0.5rem;
+  margin: 0.1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.ReservationList .ChangeReservationButton {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.ReservationList .ChangeReservationButton:hover {
+  background-color: #2980b9;
+}
+
+.ReservationList .CancelReservationButton {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.ReservationList .CancelReservationButton:hover {
+  background-color: #c0392b;
+}
+
+
+
+.confirmation-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-popup {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 300px;
+}
+
+.confirmation-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.confirmation-buttons button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 80px;
+}
+
+.confirmation-buttons .confirm-btn {
+  background-color: #572AD7;
+  color: white;
+}
+
+.confirmation-buttons .cancel-btn {
+  background-color: #ccc;
+}
