@@ -31,9 +31,25 @@ export class UserService {
         const salt = await bcrypt.genSalt();
         userDto.password = await bcrypt.hash(userDto.password, salt);
 
-        const newUser = this.userRepository.create(userDto);
-        console.log('new user', newUser);
-        return this.userRepository.save(newUser);
+    const newUser = this.userRepository.create(userDto as any);
+    console.log('new user', newUser);
+    return this.userRepository.save(newUser as any);
+    }
+
+    // Admin: create user with optional role
+    async createWithRole(userDto: UserDto): Promise<User> {
+        const existingUser = await this.userRepository.findOne({ where: { email: userDto.email } });
+        if (existingUser) {
+            throw new BadRequestException('Email already exists');
+        }
+        const salt = await bcrypt.genSalt();
+        userDto.password = await bcrypt.hash(userDto.password, salt);
+    const newUser = this.userRepository.create(userDto as any);
+    return this.userRepository.save(newUser as any);
+    }
+
+    async setUserRole(userId: string, role: string) {
+        return this.userRepository.update(userId, { role: role as any });
     }
 
 

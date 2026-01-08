@@ -1,19 +1,31 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, IntegerType } from "typeorm";
-import { Reservation } from "../reservation/reservation.entity"; // Assurez-vous de l'import correct de votre entité de réservation
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
+import { Reservation } from "../reservation/reservation.entity";
+
+export enum UserRole {
+  USER = 'user',
+  ADMIN = 'admin',
+}
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn('uuid')
-    idUs: number;
+    @PrimaryGeneratedColumn('uuid', {name: 'idus'})
+    idUs: string;
 
     @Column()
     name: string;
 
-    @Column({unique: true})
+    @Column({ unique: true })
     email: string;
 
     @Column()
     password: string;
+
+    @Column({
+        type: 'enum',
+        enum: UserRole,
+        default: UserRole.USER,
+    })
+    role: UserRole;
 
     @OneToMany(() => Reservation, reservation => reservation.user)
     Reservations: Reservation[];
@@ -23,6 +35,4 @@ export class User {
 
     @Column({ type: 'timestamptz', nullable: true })
     resetTokenExpires: Date | null;
-
-  
 }

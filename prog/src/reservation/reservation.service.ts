@@ -33,7 +33,7 @@ export class ReservationService {
     console.log(`Fetching reservations for user ID: ${connectedUser.userId}`); // Log user ID
 
     const user = await this.userRepository.findOne({
-      where: { idUs: connectedUser.userId },
+      where: { idUs: connectedUser.userId.toString() },
     });
     if (!user) {
       throw new NotFoundException(`User id ${connectedUser.userId} not found`);
@@ -49,7 +49,7 @@ export class ReservationService {
 
   async annulerRes(userId: number, reservationId: number): Promise<void> {
     const reservation = await this.reservationRepository.findOne({
-      where: { idRes: reservationId, user: { idUs: userId } },
+      where: { idRes: reservationId, user: { idUs: userId.toString() } },
     });
     if (!reservation) {
       console.log(`Reservation id ${reservationId} not found for user id ${userId}`);
@@ -66,7 +66,7 @@ export class ReservationService {
     startDate: Date,
     endDate: Date,
   ): Promise<void> {
-    const user = await this.userRepository.findOne({ where: { idUs: userId } });
+    const user = await this.userRepository.findOne({ where: { idUs: userId.toString() } });
     if (!user) {
       throw new NotFoundException(`User id ${userId} not found`);
     }
@@ -103,7 +103,7 @@ export class ReservationService {
     newEndDate: Date,
   ): Promise<void> {
     const user = await this.userRepository.findOne({
-      where: { idUs: userId },
+      where: { idUs: userId.toString() },
     });
     if (!user) {
       throw new NotFoundException(`User id ${userId} not found`);
@@ -151,9 +151,19 @@ export class ReservationService {
 
   async findReservationsByUser(userId: number): Promise<Reservation[]> {
     return this.reservationRepository.find({
-      where: { user: { idUs: userId } },
+      where: { user: { idUs: userId.toString() } },
       relations: ['device'], // Ensure device relationship is included
     });
+  }
+
+  // Admin: update reservation status (e.g., 'Accepted' or 'Rejected')
+  async updateReservationStatus(reservationId: number, status: string): Promise<Reservation> {
+    const reservation = await this.reservationRepository.findOne({ where: { idRes: reservationId } });
+    if (!reservation) {
+      throw new NotFoundException(`Reservation ${reservationId} not found`);
+    }
+    reservation.status = status;
+    return this.reservationRepository.save(reservation);
   }
 
 }

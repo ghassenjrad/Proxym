@@ -20,7 +20,7 @@ import { Reservation } from './reservation/reservation.entity';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'Ons',
+      password: '23500501',
       database: 'db',
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
       synchronize: true,

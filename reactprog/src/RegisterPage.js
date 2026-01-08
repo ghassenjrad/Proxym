@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import axios from 'axios';
 import logoIMG from '../src/media/logo.svg';
+import { jwtDecode } from 'jwt-decode';
 import './RegisterPage.css';
 
 function RegisterPage() {
@@ -11,14 +12,25 @@ function RegisterPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const history = useHistory();
+  const isCurrentAdmin = localStorage.getItem('role') === 'admin' || localStorage.getItem('token') && (() => { try { return (jwtDecode(localStorage.getItem('token')).role === 'admin'); } catch { return false } })();
+  const [createAsAdmin, setCreateAsAdmin] = useState(false);
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/users/register', { name, email, password });
+      let response;
+      if (isCurrentAdmin && createAsAdmin) {
+        // Admin creating a user with a role
+        response = await axios.post('http://localhost:3000/users/create-with-role', { name, email, password, role: 'admin' }, {
+          headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        });
+      } else {
+        response = await axios.post('http://localhost:3000/users/register', { name, email, password });
+      }
       if (response.data) {
-        alert('Registration successful. Please log in.');
-        history.push('/login');
+        alert('Registration successful.');
+        // If admin created a user, stay on register page; else redirect to login
+        if (!isCurrentAdmin) history.push('/login');
       }
     } catch (error) {
       if (error.response && error.response.data) {
@@ -54,6 +66,14 @@ function RegisterPage() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {isCurrentAdmin && (
+          <div style={{ marginTop: 8 }}>
+            <label>
+              <input type="checkbox" checked={createAsAdmin} onChange={(e) => setCreateAsAdmin(e.target.checked)} />
+              Create as Admin
+            </label>
+          </div>
+        )}
         {error && <p className="error-message">{error}</p>}
         <button onClick={handleRegister}>Register</button>
         <Link className='Cancel' to="/login">Cancel</Link>

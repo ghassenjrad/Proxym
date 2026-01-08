@@ -19,24 +19,25 @@ export class AuthService {
             where: { email: email }
         });
 
-        
-
-        const isPasswordValid = await bcrypt.compare(pass, user.password);
-        console.log('Password valid:', isPasswordValid);
-
-        if (!isPasswordValid) {
-            console.log('Invalid password');
+        if (!user) {
             throw new UnauthorizedException('Invalid credentials');
         }
 
-        const payload = { sub: user.idUs, username: user.name }
-        console.log(this.jwtService.signAsync(payload));
-        const access_token = await this.jwtService.signAsync(payload);
-        return {
-            access_token
-        };
+        const isPasswordValid = await bcrypt.compare(pass, user.password);
+        if (!isPasswordValid) {
+            throw new UnauthorizedException('Invalid credentials');
+        }
 
+        // Inclure le rôle dans le payload
+        const payload = { sub: user.idUs, username: user.name, role: user.role };
+        const access_token = await this.jwtService.signAsync(payload);
+
+        return {
+            access_token,
+            role: user.role, // renvoyer aussi le rôle pour le frontend
+        };
     }
+
 
 
 }

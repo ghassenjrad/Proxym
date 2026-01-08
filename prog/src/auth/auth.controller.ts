@@ -33,7 +33,7 @@ export class AuthController {
     const expires = new Date();
     expires.setHours(expires.getHours() + 1);
 
-    await this.userService.savePasswordResetToken(user.idUs, token, expires);
+    await this.userService.savePasswordResetToken(Number(user.idUs), token, expires);
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.ethereal.email',
@@ -71,7 +71,7 @@ export class AuthController {
       throw new NotFoundException('Invalid or expired token');
     }
 
-    await this.userService.updatePassword(user.idUs, newPassword);
+    await this.userService.updatePassword(Number(user.idUs), newPassword);
 
     return { message: 'Password reset successful' };
   }

@@ -15,6 +15,9 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from 'src/auth/user-decorator';
 import { User } from 'src/user/user.entity';
+import { RolesGuard } from 'src/auth/roles.guard';
+import { Roles } from 'src/auth/roles.decorator';
+import { UserRole } from 'src/user/user.entity';
 
 @Controller('reservation')
 export class ReservationController {
@@ -61,6 +64,23 @@ export class ReservationController {
   @Get('all')
   async getReservations(): Promise<Reservation[]> {
     return this.reservationService.getAllReservations();
+  }
+
+  // Admin: list all reservations (protected)
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Get('admin/all')
+  async getAllForAdmin(): Promise<Reservation[]> {
+    return this.reservationService.getAllReservations();
+  }
+
+  // Admin: update reservation status
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Post('admin/status')
+  async updateStatus(
+    @Body() body: { idRes: number; status: string },
+  ) {
+    const { idRes, status } = body;
+    return this.reservationService.updateReservationStatus(idRes, status);
   }
 
   @UseGuards(AuthGuard('jwt'))

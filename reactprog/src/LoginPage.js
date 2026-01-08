@@ -7,6 +7,7 @@ import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { jwtDecode } from 'jwt-decode';
 
 
 function LoginPage() {
@@ -16,6 +17,7 @@ function LoginPage() {
   const [error, setError] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
 
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -23,13 +25,20 @@ function LoginPage() {
       if (response.data && response.data.access_token) {
         const { access_token } = response.data;
 
-        // Save the JWT in localStorage
+        // Decode JWT to get the role
+        const decoded = jwtDecode(access_token);
+        const role = decoded.role; // Assure-toi que ton payload contient role
+
+        // Save token and role
         localStorage.setItem('token', access_token);
-        console.log(localStorage.getItem('token'));
+        localStorage.setItem('role', role);
 
-
-        // Redirect to HomePage
-        history.push('/home');
+        // Redirect based on role
+        if (role === 'admin') {
+          history.push('/admin'); // page d'administration
+        } else {
+          history.push('/home'); // page utilisateur normal
+        }
       } else {
         console.error('No access_token found in response:', response.data);
       }
@@ -41,6 +50,7 @@ function LoginPage() {
       }
     }
   };
+
 
 
   return (
